@@ -8,6 +8,7 @@ namespace MESACloudAPILib
     public class MessageTools
     {
         int id;
+        string name;
 
     }
 }
