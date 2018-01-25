@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:i0="http://www.aglaia-gmbh.de/xml/SOAPdControl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Web Service for testing SOAPd Client</wsdl:documentation>
+  <wsdl:import namespace="http://www.aglaia-gmbh.de/xml/SOAPdControl/" location="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?wsdl=wsdl1" />
+  <wsdl:types>
+    <s:schema targetNamespace="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/">
+      <s:import schemaLocation="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?schema=schema1" namespace="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" />
+      <s:include schemaLocation="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?schema=schema2" />
+      <s:import schemaLocation="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?schema=schema3" namespace="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="NotificationSoapIn">
+    <wsdl:part xmlns:q1="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" name="notification_message" element="q1:notification_message" />
+  </wsdl:message>
+  <wsdl:message name="NotificationSoapOut">
+    <wsdl:part xmlns:q2="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" name="NotificationResult" element="q2:answer_message" />
+  </wsdl:message>
+  <wsdl:message name="ErrorSoapIn">
+    <wsdl:part xmlns:q3="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" name="error_message" element="q3:error_message" />
+  </wsdl:message>
+  <wsdl:message name="ErrorSoapOut">
+    <wsdl:part xmlns:q4="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" name="ErrorResult" element="q4:task_message" />
+  </wsdl:message>
+  <wsdl:portType name="SOAPdServiceSoap12Binding">
+    <wsdl:operation name="Notification">
+      <wsdl:input message="tns:NotificationSoapIn" />
+      <wsdl:output message="tns:NotificationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Error">
+      <wsdl:input message="tns:ErrorSoapIn" />
+      <wsdl:output message="tns:ErrorSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPdServiceSoap12Binding" type="tns:SOAPdServiceSoap12Binding">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Notification">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/NotificationRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Error">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/ErrorRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SOAPdServiceSoap12Binding1" type="tns:SOAPdServiceSoap12Binding">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Notification">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/NotificationRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Error">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/ErrorRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SOAPd_x0020_Web_x0020_Service">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Web Service for testing SOAPd Client</wsdl:documentation>
+    <wsdl:port name="SOAPdServiceSoap12Binding" binding="tns:SOAPdServiceSoap12Binding">
+      <soap:address location="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SOAPdControl_Binding" binding="i0:SOAPdControl_Binding">
+      <soap:address location="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SOAPdServiceSoap12Binding1" binding="tns:SOAPdServiceSoap12Binding1">
+      <soap12:address location="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SOAPdControl_Binding1" binding="i0:SOAPdControl_Binding1">
+      <soap12:address location="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

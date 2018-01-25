@@ -1,0 +1,1 @@
+<%@ WebService Language="C#" CodeBehind="LGJAPCECOService.asmx.cs" Class="LGJHellaAPCSOAPdService.LGJHellaAPCECOService" %>

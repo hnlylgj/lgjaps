@@ -1,0 +1,15 @@
+﻿  SOAP12ServiceTest.cpp
+c:\myprojects\vs2015\soap12test\soap12test\soap12servicetest\soap12servicetest.cpp(64): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+c:\myprojects\vs2015\soap12test\soap12test\soap12servicetest\soap12servicetest.cpp(69): warning C4101: “putf8str”: 未引用的局部变量
+c:\myprojects\vs2015\soap12test\soap12test\soap12servicetest\soap12servicetest.cpp(104): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+c:\myprojects\vs2015\soap12test\soap12test\soap12servicetest\soap12servicetest.cpp(110): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+c:\myprojects\vs2015\soap12test\soap12test\soap12servicetest\soap12servicetest.cpp(115): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+c:\myprojects\vs2015\soap12test\soap12test\soap12servicetest\soap12servicetest.cpp(119): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(1769): note: 参见“sprintf”的声明
+  CloudStackSoap12BindingService.cpp
+  正在生成代码...
+  SOAP12ServiceTest.vcxproj -> C:\MyProjects\VS2015\SOAP12Test\SOAP12Test\Debug\SOAP12ServiceTest.exe

@@ -1,0 +1,773 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SmartBusAPCECOService" targetNamespace="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" />
+      <xs:element name="Notification">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" name="notification_message" nillable="true" type="q1:NotificationContainer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NotificationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" name="NotificationResult" nillable="true" type="q2:answer_message" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Error">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" name="error_message" nillable="true" type="q3:ErrorContainer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ErrorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" name="ErrorResult" nillable="true" type="q4:task_message" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" elementFormDefault="qualified" targetNamespace="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/SmartBusECOService.NotificationMessage" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/SmartBusECOService.AnswerMessage" />
+      <xs:complexType name="NotificationContainer">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Item" nillable="true" type="tns:NotificationBase" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NotificationContainer" nillable="true" type="tns:NotificationContainer" />
+      <xs:complexType name="NotificationBase">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="callerType_ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="customer_ID" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="mac_address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="notification_ID" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="serverTask_ID" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="task_type" type="tns:TaskType" />
+          <xs:element minOccurs="0" name="timestamp" type="xs:dateTime" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NotificationBase" nillable="true" type="tns:NotificationBase" />
+      <xs:simpleType name="TaskType">
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+      <xs:element name="TaskType" nillable="true" type="tns:TaskType" />
+      <xs:complexType name="HistoricObjectListNotificationBase">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:sequence>
+              <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Items" nillable="true" type="q1:ArrayOfanyType" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="HistoricObjectListNotificationBase" nillable="true" type="tns:HistoricObjectListNotificationBase" />
+      <xs:complexType name="HistoricObjectListNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:HistoricObjectListNotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="lost_count" type="xs:unsignedInt" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="HistoricObjectListNotification" nillable="true" type="tns:HistoricObjectListNotification" />
+      <xs:complexType name="ParameterNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="parameter_data" nillable="true" type="tns:BinaryData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ParameterNotification" nillable="true" type="tns:ParameterNotification" />
+      <xs:complexType name="BinaryData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="bin_data" nillable="true" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BinaryData" nillable="true" type="tns:BinaryData" />
+      <xs:complexType name="LogfilesNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="log_data" nillable="true" type="tns:BinaryData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="LogfilesNotification" nillable="true" type="tns:LogfilesNotification" />
+      <xs:complexType name="DigitalInputNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="digital_input_port" nillable="true" type="tns:ArrayOfDigitalInputElement" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="DigitalInputNotification" nillable="true" type="tns:DigitalInputNotification" />
+      <xs:complexType name="ArrayOfDigitalInputElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DigitalInputElement" nillable="true" type="tns:DigitalInputElement" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDigitalInputElement" nillable="true" type="tns:ArrayOfDigitalInputElement" />
+      <xs:complexType name="DigitalInputElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="value" type="tns:DigitalInputValue" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DigitalInputElement" nillable="true" type="tns:DigitalInputElement" />
+      <xs:simpleType name="DigitalInputValue">
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+      <xs:element name="DigitalInputValue" nillable="true" type="tns:DigitalInputValue" />
+      <xs:complexType name="NotificationWithOSDState">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="osd_state" type="tns:OSD_State" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="NotificationWithOSDState" nillable="true" type="tns:NotificationWithOSDState" />
+      <xs:simpleType name="OSD_State">
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+      <xs:element name="OSD_State" nillable="true" type="tns:OSD_State" />
+      <xs:complexType name="CurrentObjectListNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Items" nillable="true" type="q2:ArrayOfanyType" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="CurrentObjectListNotification" nillable="true" type="tns:CurrentObjectListNotification" />
+      <xs:complexType name="CameraImagesNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="camera_images" nillable="true" type="tns:BinaryData" />
+              <xs:element minOccurs="0" name="eval_map" nillable="true" type="tns:BinaryData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="CameraImagesNotification" nillable="true" type="tns:CameraImagesNotification" />
+      <xs:complexType name="ClearZoneNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="clear_zone_id" nillable="true" type="tns:ClearZoneID" />
+              <xs:element minOccurs="0" name="is_blocked" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ClearZoneNotification" nillable="true" type="tns:ClearZoneNotification" />
+      <xs:complexType name="ClearZoneID">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ClearZoneID" nillable="true" type="tns:ClearZoneID" />
+      <xs:complexType name="FillNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="fill_level" type="xs:unsignedInt" />
+              <xs:element minOccurs="0" name="fill_region_id" nillable="true" type="tns:FillRegionID" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="FillNotification" nillable="true" type="tns:FillNotification" />
+      <xs:complexType name="FillRegionID">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FillRegionID" nillable="true" type="tns:FillRegionID" />
+      <xs:complexType name="ZoneChannelsNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SmartBusECOService.NotificationMessage" minOccurs="0" name="zone_channel" nillable="true" type="q3:ArrayOfZoneData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ZoneChannelsNotification" nillable="true" type="tns:ZoneChannelsNotification" />
+      <xs:complexType name="CountChannelsNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="count_channel" nillable="true" type="tns:ArrayOfCountChannelData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="CountChannelsNotification" nillable="true" type="tns:CountChannelsNotification" />
+      <xs:complexType name="ArrayOfCountChannelData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CountChannelData" nillable="true" type="tns:CountChannelData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCountChannelData" nillable="true" type="tns:ArrayOfCountChannelData" />
+      <xs:complexType name="CountChannelData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="channel_name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="count_in" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="count_out" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="objClass" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CountChannelData" nillable="true" type="tns:CountChannelData" />
+      <xs:complexType name="count_notification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="count_in" type="xs:unsignedInt" />
+              <xs:element minOccurs="0" name="count_out" type="xs:unsignedInt" />
+              <xs:element minOccurs="0" name="counting_gate_id" nillable="true" type="tns:CountingGateID" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="count_notification" nillable="true" type="tns:count_notification" />
+      <xs:complexType name="CountingGateID">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CountingGateID" nillable="true" type="tns:CountingGateID" />
+      <xs:complexType name="ExtendedNotificationBase">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="customer_version" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="firmware_version" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="ip_address" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="version" type="xs:decimal" />
+              <xs:element minOccurs="0" name="versionSpecified" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ExtendedNotificationBase" nillable="true" type="tns:ExtendedNotificationBase" />
+      <xs:complexType name="ErrorContainer">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="error_reason" type="tns:SOAP_DeviceError" />
+              <xs:element minOccurs="0" name="error_text" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ErrorContainer" nillable="true" type="tns:ErrorContainer" />
+      <xs:simpleType name="SOAP_DeviceError">
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+      <xs:element name="SOAP_DeviceError" nillable="true" type="tns:SOAP_DeviceError" />
+      <xs:complexType name="FeatureInfoNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="active_count_channels" nillable="true" type="tns:ArrayOfCountChannelFeatureInfo" />
+              <xs:element minOccurs="0" name="active_zone_channels" nillable="true" type="tns:ArrayOfZoneChannelFeatureInfo" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="FeatureInfoNotification" nillable="true" type="tns:FeatureInfoNotification" />
+      <xs:complexType name="ArrayOfCountChannelFeatureInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="CountChannelFeatureInfo" nillable="true" type="tns:CountChannelFeatureInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfCountChannelFeatureInfo" nillable="true" type="tns:ArrayOfCountChannelFeatureInfo" />
+      <xs:complexType name="CountChannelFeatureInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="objClass" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CountChannelFeatureInfo" nillable="true" type="tns:CountChannelFeatureInfo" />
+      <xs:complexType name="ArrayOfZoneChannelFeatureInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZoneChannelFeatureInfo" nillable="true" type="tns:ZoneChannelFeatureInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfZoneChannelFeatureInfo" nillable="true" type="tns:ArrayOfZoneChannelFeatureInfo" />
+      <xs:complexType name="ZoneChannelFeatureInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="objClass" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ZoneChannelFeatureInfo" nillable="true" type="tns:ZoneChannelFeatureInfo" />
+      <xs:complexType name="startup_notification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="reboot_type" type="tns:RebootType" />
+              <xs:element minOccurs="0" name="xml_version" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="startup_notification" nillable="true" type="tns:startup_notification" />
+      <xs:simpleType name="RebootType">
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+      <xs:element name="RebootType" nillable="true" type="tns:RebootType" />
+      <xs:complexType name="alive_notification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="alive_notification" nillable="true" type="tns:alive_notification" />
+      <xs:complexType name="ErrorLogfilesNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="error_log_data" nillable="true" type="tns:BinaryData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="ErrorLogfilesNotification" nillable="true" type="tns:ErrorLogfilesNotification" />
+      <xs:complexType name="answer_message">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:task_message">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="referenced_notification_ID" type="xs:unsignedInt" />
+              <xs:element minOccurs="0" name="server_response_type" type="tns:SOAP_ServerError" />
+              <xs:element minOccurs="0" name="version" type="xs:decimal" />
+              <xs:element minOccurs="0" name="versionSpecified" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="answer_message" nillable="true" type="tns:answer_message" />
+      <xs:complexType name="task_message">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfTask" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="task_message" nillable="true" type="tns:task_message" />
+      <xs:complexType name="ArrayOfTask">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Task" nillable="true" type="tns:Task" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfTask" nillable="true" type="tns:ArrayOfTask" />
+      <xs:complexType name="Task">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="serverTask_ID" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="task_type" type="tns:TaskType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Task" nillable="true" type="tns:Task" />
+      <xs:complexType name="TaskDeleteAllNotifications">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskDeleteAllNotifications" nillable="true" type="tns:TaskDeleteAllNotifications" />
+      <xs:complexType name="TaskDeleteAllTasks">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskDeleteAllTasks" nillable="true" type="tns:TaskDeleteAllTasks" />
+      <xs:complexType name="TaskSetDateTime">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="time_to_set" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSetDateTime" nillable="true" type="tns:TaskSetDateTime" />
+      <xs:complexType name="TaskWithActivity">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="activity_state" type="xs:boolean" />
+              <xs:element minOccurs="0" name="store_task" type="xs:boolean" />
+              <xs:element minOccurs="0" name="store_taskSpecified" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskWithActivity" nillable="true" type="tns:TaskWithActivity" />
+      <xs:complexType name="TaskSubscribeTriggered">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskWithActivity">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="trigger" nillable="true" type="tns:Trigger" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeTriggered" nillable="true" type="tns:TaskSubscribeTriggered" />
+      <xs:complexType name="Trigger">
+        <xs:sequence />
+      </xs:complexType>
+      <xs:element name="Trigger" nillable="true" type="tns:Trigger" />
+      <xs:complexType name="TaskSubscribeFeaturesInfo">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeFeaturesInfo" nillable="true" type="tns:TaskSubscribeFeaturesInfo" />
+      <xs:complexType name="TaskSubscribeObjectList">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="transfer_type" type="tns:TransferType" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeObjectList" nillable="true" type="tns:TaskSubscribeObjectList" />
+      <xs:simpleType name="TransferType">
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+      <xs:element name="TransferType" nillable="true" type="tns:TransferType" />
+      <xs:complexType name="task_subscribe_alive">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="task_subscribe_alive" nillable="true" type="tns:task_subscribe_alive" />
+      <xs:complexType name="TaskSubscribeVideoStore">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeVideoStore" nillable="true" type="tns:TaskSubscribeVideoStore" />
+      <xs:complexType name="TaskSubscribeSendParameters">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeSendParameters" nillable="true" type="tns:TaskSubscribeSendParameters" />
+      <xs:complexType name="TaskSubscribeCameraImages">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeCameraImages" nillable="true" type="tns:TaskSubscribeCameraImages" />
+      <xs:complexType name="TaskSubscribeErrorLog">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeErrorLog" nillable="true" type="tns:TaskSubscribeErrorLog" />
+      <xs:complexType name="TaskSubscribeLogfiles">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeLogfiles" nillable="true" type="tns:TaskSubscribeLogfiles" />
+      <xs:complexType name="TaskSubscribeTriggeredSafe">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="store_on_transmission_error" type="xs:boolean" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeTriggeredSafe" nillable="true" type="tns:TaskSubscribeTriggeredSafe" />
+      <xs:complexType name="TaskSubscribeDigitalInput">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="digital_input_port" nillable="true" type="tns:ArrayOfDigitalInputControl" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeDigitalInput" nillable="true" type="tns:TaskSubscribeDigitalInput" />
+      <xs:complexType name="ArrayOfDigitalInputControl">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DigitalInputControl" nillable="true" type="tns:DigitalInputControl" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDigitalInputControl" nillable="true" type="tns:ArrayOfDigitalInputControl" />
+      <xs:complexType name="DigitalInputControl">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="activity_state" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DigitalInputControl" nillable="true" type="tns:DigitalInputControl" />
+      <xs:complexType name="TaskSubscribeClearZone">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="clear_zone_id" nillable="true" type="tns:ClearZoneID" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeClearZone" nillable="true" type="tns:TaskSubscribeClearZone" />
+      <xs:complexType name="TaskSubscribeFill">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="fill_region_id" nillable="true" type="tns:FillRegionID" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeFill" nillable="true" type="tns:TaskSubscribeFill" />
+      <xs:complexType name="TaskSubscribeZoneChannels">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeZoneChannels" nillable="true" type="tns:TaskSubscribeZoneChannels" />
+      <xs:complexType name="TaskSubscribeCountChannels">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSubscribeCountChannels" nillable="true" type="tns:TaskSubscribeCountChannels" />
+      <xs:complexType name="task_subscribe_counting">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="counting_gate_id" nillable="true" type="tns:CountingGateID" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="task_subscribe_counting" nillable="true" type="tns:task_subscribe_counting" />
+      <xs:complexType name="TaskSetDigitalOutput">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskWithActivity">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="digital_output_port" nillable="true" type="tns:ArrayOfDigitalOutputElement" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskSetDigitalOutput" nillable="true" type="tns:TaskSetDigitalOutput" />
+      <xs:complexType name="ArrayOfDigitalOutputElement">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="DigitalOutputElement" nillable="true" type="tns:DigitalOutputElement" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfDigitalOutputElement" nillable="true" type="tns:ArrayOfDigitalOutputElement" />
+      <xs:complexType name="DigitalOutputElement">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SmartBusECOService.AnswerMessage" minOccurs="0" name="activity" type="q4:DigitalOutputActivity" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DigitalOutputElement" nillable="true" type="tns:DigitalOutputElement" />
+      <xs:complexType name="TaskRequestParameters">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="packet_url" nillable="true" type="xs:string" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskRequestParameters" nillable="true" type="tns:TaskRequestParameters" />
+      <xs:complexType name="TaskRequestUpdate">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="packet_url" nillable="true" type="xs:string" />
+              <xs:element minOccurs="0" name="update_type" type="tns:UpdateType" />
+              <xs:element minOccurs="0" name="validity" type="xs:unsignedInt" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskRequestUpdate" nillable="true" type="tns:TaskRequestUpdate" />
+      <xs:simpleType name="UpdateType">
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+      <xs:element name="UpdateType" nillable="true" type="tns:UpdateType" />
+      <xs:complexType name="TaskRebootNow">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:sequence />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="TaskRebootNow" nillable="true" type="tns:TaskRebootNow" />
+      <xs:simpleType name="SOAP_ServerError">
+        <xs:restriction base="xs:string" />
+      </xs:simpleType>
+      <xs:element name="SOAP_ServerError" nillable="true" type="tns:SOAP_ServerError" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfanyType">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" type="xs:anyType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfanyType" nillable="true" type="tns:ArrayOfanyType" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SmartBusECOService.NotificationMessage" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SmartBusECOService.NotificationMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfZoneData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ZoneData" nillable="true" type="tns:ZoneData" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfZoneData" nillable="true" type="tns:ArrayOfZoneData" />
+      <xs:complexType name="ZoneData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="fill_level" type="xs:unsignedInt" />
+          <xs:element minOccurs="0" name="objClass" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="zone_name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ZoneData" nillable="true" type="tns:ZoneData" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SmartBusECOService.AnswerMessage" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SmartBusECOService.AnswerMessage" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="DigitalOutputActivity">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DIGITAL_OUTPUT_LOW" />
+          <xs:enumeration value="DIGITAL_OUTPUT_HIGH" />
+          <xs:enumeration value="DIGITAL_OUTPUT_HOLD_LOW" />
+          <xs:enumeration value="DIGITAL_OUTPUT_HOLD_HIGH" />
+          <xs:enumeration value="DIGITAL_OUTPUT_UNTOUCHED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="DigitalOutputActivity" nillable="true" type="tns:DigitalOutputActivity" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="HellaAPCECOSOAPdService_Notification_InputMessage">
+    <wsdl:part name="parameters" element="tns:Notification" />
+  </wsdl:message>
+  <wsdl:message name="HellaAPCECOSOAPdService_Notification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="HellaAPCECOSOAPdService_Error_InputMessage">
+    <wsdl:part name="parameters" element="tns:Error" />
+  </wsdl:message>
+  <wsdl:message name="HellaAPCECOSOAPdService_Error_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ErrorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HellaAPCECOSOAPdService">
+    <wsdl:operation name="Notification">
+      <wsdl:input wsaw:Action="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/NotificationRequest" message="tns:HellaAPCECOSOAPdService_Notification_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/HellaAPCECOSOAPdService/NotificationResponse" message="tns:HellaAPCECOSOAPdService_Notification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Error">
+      <wsdl:input wsaw:Action="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/ErrorRequest" message="tns:HellaAPCECOSOAPdService_Error_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/HellaAPCECOSOAPdService/ErrorResponse" message="tns:HellaAPCECOSOAPdService_Error_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_HellaAPCECOSOAPdService" type="tns:HellaAPCECOSOAPdService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Notification">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/NotificationRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Error">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/ErrorRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmartBusAPCECOService">
+    <wsdl:port name="BasicHttpBinding_HellaAPCECOSOAPdService" binding="tns:BasicHttpBinding_HellaAPCECOSOAPdService">
+      <soap:address location="http://0.0.0.0:8880/SmartBusAPCECO/HellaSoap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" elementFormDefault="qualified" targetNamespace="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" id="schema2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" />
+  <xs:complexType name="ArrayOfChoice1">
+    <xs:choice minOccurs="0" maxOccurs="unbounded">
+      <xs:element xmlns:q1="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q1:task_set_date_time" />
+      <xs:element xmlns:q2="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q2:task_subscribe_alive" />
+      <xs:element xmlns:q3="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q3:task_subscribe_camera_images" />
+      <xs:element xmlns:q4="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q4:task_request_parameters" />
+      <xs:element xmlns:q5="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q5:task_reboot_now" />
+      <xs:element xmlns:q6="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q6:task_subscribe_digital_input" />
+      <xs:element xmlns:q7="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q7:task_subscribe_error_log" />
+      <xs:element xmlns:q8="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q8:task_delete_all_tasks" />
+      <xs:element xmlns:q9="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q9:task_request_update" />
+      <xs:element xmlns:q10="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q10:task_subscribe_fill" />
+      <xs:element xmlns:q11="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q11:task_subscribe_features_info" />
+      <xs:element xmlns:q12="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q12:task_subscribe_count_channels" />
+      <xs:element xmlns:q13="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q13:task_set_digital_output" />
+      <xs:element xmlns:q14="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q14:task_subscribe_zone_channels" />
+      <xs:element xmlns:q15="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q15:task_subscribe_counting" />
+      <xs:element xmlns:q16="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q16:task_delete_all_notifications" />
+      <xs:element xmlns:q17="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q17:task_subscribe_objlist" />
+      <xs:element xmlns:q18="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q18:task_subscribe_logfiles" />
+      <xs:element xmlns:q19="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q19:task_subscribe_clear_zone" />
+      <xs:element xmlns:q20="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q20:task_subscribe_send_parameters" />
+      <xs:element xmlns:q21="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q21:task_subscribe_video_store" />
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>

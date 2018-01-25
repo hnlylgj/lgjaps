@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DEF2E3DA-9504-4D21-86B7-2EFCF7A25D57}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartBusECOService</RootNamespace>
+    <AssemblyName>SmartBusECOService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountTest.cs" />
+    <Compile Include="AnswerMessage\AnswerContainer.cs" />
+    <Compile Include="AnswerMessage\ClearZoneEvent.cs" />
+    <Compile Include="AnswerMessage\CountChannelsEvent.cs" />
+    <Compile Include="AnswerMessage\CountEvent.cs" />
+    <Compile Include="AnswerMessage\CurrentObjectListEvent.cs" />
+    <Compile Include="AnswerMessage\DigitalInputEvent.cs" />
+    <Compile Include="AnswerMessage\EventTrigger.cs" />
+    <Compile Include="AnswerMessage\FeatureChangedEvent.cs" />
+    <Compile Include="AnswerMessage\FillEvent.cs" />
+    <Compile Include="AnswerMessage\OneTimeEvent.cs" />
+    <Compile Include="AnswerMessage\OSD_Event.cs" />
+    <Compile Include="AnswerMessage\TaskDeleteAllNotifications.cs" />
+    <Compile Include="AnswerMessage\TaskDeleteAllTasks.cs" />
+    <Compile Include="AnswerMessage\TaskRequestParameters.cs" />
+    <Compile Include="AnswerMessage\TaskSetDateTime.cs" />
+    <Compile Include="AnswerMessage\TaskSetDigitalOutput.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeAlive.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeCameraImages.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeClearZone.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeCountChannels.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeDigitalInput.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeErrorLog.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeFeaturesInfo.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeFill.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeLogfiles.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeObjectList.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeSendParameters.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeTriggered.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeTriggeredSafe.cs" />
+    <Compile Include="AnswerMessage\Task.cs" />
+    <Compile Include="AnswerMessage\TaskContainer.cs" />
+    <Compile Include="AnswerMessage\TaskRebootNow.cs" />
+    <Compile Include="AnswerMessage\TaskRequestUpdate.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeCounting.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeVideoStore.cs" />
+    <Compile Include="AnswerMessage\TaskSubscribeZoneChannels.cs" />
+    <Compile Include="AnswerMessage\TaskWithActivity.cs" />
+    <Compile Include="AnswerMessage\TimeTrigger.cs" />
+    <Compile Include="AnswerMessage\Trigger.cs" />
+    <Compile Include="AnswerMessage\ZoneChannelsEvent.cs" />
+    <Compile Include="CodeFile1.cs" />
+    <Compile Include="CreateMobileID.cs" />
+    <Compile Include="FTP\FTPSocketHelper.cs" />
+    <Compile Include="FTP\UserSeesion.cs" />
+    <Compile Include="FTP\User.cs" />
+    <Compile Include="ICarRunState.cs" />
+    <Compile Include="IHellaAPCECO.cs" />
+    <Compile Include="IPrimeAccount.cs" />
+    <Compile Include="ISmartDevice.cs" />
+    <Compile Include="ISmartWarn .cs" />
+    <Compile Include="LGJHellaAPCECO\HellaAPCECOContract.cs" />
+    <Compile Include="NotificationMessage\AliveNotification.cs" />
+    <Compile Include="NotificationMessage\CameraImagesNotification.cs" />
+    <Compile Include="NotificationMessage\ClearZoneNotification.cs" />
+    <Compile Include="NotificationMessage\CountChannelsNotification.cs" />
+    <Compile Include="NotificationMessage\CountNotification.cs" />
+    <Compile Include="NotificationMessage\CurrentObjectListNotification.cs" />
+    <Compile Include="NotificationMessage\DigitalInputNotification.cs" />
+    <Compile Include="NotificationMessage\ErrorContainer.cs" />
+    <Compile Include="NotificationMessage\ErrorLogfilesNotification.cs" />
+    <Compile Include="NotificationMessage\ExtendedNotificationBase.cs" />
+    <Compile Include="NotificationMessage\FeatureInfoNotification.cs" />
+    <Compile Include="NotificationMessage\FillNotification.cs" />
+    <Compile Include="NotificationMessage\HistoricObjectListNotification.cs" />
+    <Compile Include="NotificationMessage\HistoricObjectListNotificationBase.cs" />
+    <Compile Include="NotificationMessage\LogfilesNotification.cs" />
+    <Compile Include="NotificationMessage\NotificationBase.cs" />
+    <Compile Include="NotificationMessage\NotificationContainer.cs" />
+    <Compile Include="NotificationMessage\NotificationWithOSDState.cs" />
+    <Compile Include="NotificationMessage\ParameterNotification.cs" />
+    <Compile Include="NotificationMessage\StartupNotification.cs" />
+    <Compile Include="NotificationMessage\ZoneChannelsNotification.cs" />
+    <Compile Include="SmartAlarmTest.cs" />
+    <Compile Include="SmartBusAPCECOService.cs" />
+    <Compile Include="SmartBusCloudService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HellaAPCECOLib\HellaAPCECOLib.csproj">
+      <Project>{6f0bc8a2-7ea2-406a-a32d-6a1deeb41d05}</Project>
+      <Name>HellaAPCECOLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartBusBaseLib\SmartBusBaseLib.csproj">
+      <Project>{943aeae3-934c-43a7-a066-371facffd28e}</Project>
+      <Name>SmartBusBaseLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

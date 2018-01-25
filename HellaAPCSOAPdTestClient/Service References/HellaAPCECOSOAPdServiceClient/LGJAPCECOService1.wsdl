@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.aglaia-gmbh.de/xml/SOAPdControl/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.aglaia-gmbh.de/xml/SOAPdControl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema targetNamespace="http://www.aglaia-gmbh.de/xml/SOAPdControl/">
+      <s:import schemaLocation="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?schema=schema1" namespace="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" />
+      <s:import schemaLocation="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?schema=schema2" namespace="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" />
+      <s:import schemaLocation="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?schema=schema3" namespace="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendConnectionHelloSoapIn">
+    <wsdl:part xmlns:q1="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="ConnectionHello" element="q1:ConnectionHello" />
+  </wsdl:message>
+  <wsdl:message name="SendConnectionHelloSoapOut">
+    <wsdl:part xmlns:q2="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="SendConnectionHelloResult" element="q2:ServerInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationListSoapIn">
+    <wsdl:part xmlns:q3="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="NotificationListRequest" element="q3:NotificationListRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationListSoapOut">
+    <wsdl:part xmlns:q4="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="GetNotificationListResult" element="q4:ServerNotificationList" />
+  </wsdl:message>
+  <wsdl:message name="SetTaskListSoapIn">
+    <wsdl:part xmlns:q5="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="ServerTaskList" element="q5:ServerTaskList" />
+  </wsdl:message>
+  <wsdl:message name="SetTaskListSoapOut">
+    <wsdl:part xmlns:q6="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="SetTaskListResult" element="q6:TaskStatusList" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskListSoapIn">
+    <wsdl:part xmlns:q7="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="GetTaskListIdList" element="q7:GetTaskListIdList" />
+  </wsdl:message>
+  <wsdl:message name="GetTaskListSoapOut">
+    <wsdl:part xmlns:q8="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="GetTaskListResult" element="q8:ServerTaskList" />
+  </wsdl:message>
+  <wsdl:message name="DoActionSoapIn">
+    <wsdl:part xmlns:q9="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="ServerAction" element="q9:ServerAction" />
+  </wsdl:message>
+  <wsdl:message name="DoActionSoapOut">
+    <wsdl:part xmlns:q10="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="DoActionResult" element="q10:DoActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerParameterSoapIn">
+    <wsdl:part xmlns:q11="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="ServerParameterRequest" element="q11:ServerParameterRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetServerParameterSoapOut">
+    <wsdl:part xmlns:q12="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="GetServerParameterResult" element="q12:ServerParameter" />
+  </wsdl:message>
+  <wsdl:message name="SetServerParameterSoapIn">
+    <wsdl:part xmlns:q13="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="ServerParameter" element="q13:ServerParameter" />
+  </wsdl:message>
+  <wsdl:message name="SetServerParameterSoapOut">
+    <wsdl:part xmlns:q14="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="SetServerParameterResult" element="q14:ServerParameterResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationsCountSoapIn">
+    <wsdl:part xmlns:q15="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="NotificationsCountRequest" element="q15:NotificationsCountRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetNotificationsCountSoapOut">
+    <wsdl:part xmlns:q16="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="GetNotificationsCountResult" element="q16:NotificationsCount" />
+  </wsdl:message>
+  <wsdl:message name="GetCounterListSoapIn">
+    <wsdl:part xmlns:q17="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="CounterListRequest" element="q17:CounterListRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetCounterListSoapOut">
+    <wsdl:part xmlns:q18="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" name="GetCounterListResult" element="q18:CounterListSynchronize" />
+  </wsdl:message>
+  <wsdl:portType name="SOAPdControl_Binding">
+    <wsdl:operation name="SendConnectionHello">
+      <wsdl:input message="tns:SendConnectionHelloSoapIn" />
+      <wsdl:output message="tns:SendConnectionHelloSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationList">
+      <wsdl:input message="tns:GetNotificationListSoapIn" />
+      <wsdl:output message="tns:GetNotificationListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskList">
+      <wsdl:input message="tns:SetTaskListSoapIn" />
+      <wsdl:output message="tns:SetTaskListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskList">
+      <wsdl:input message="tns:GetTaskListSoapIn" />
+      <wsdl:output message="tns:GetTaskListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoAction">
+      <wsdl:input message="tns:DoActionSoapIn" />
+      <wsdl:output message="tns:DoActionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetServerParameter">
+      <wsdl:input message="tns:GetServerParameterSoapIn" />
+      <wsdl:output message="tns:GetServerParameterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetServerParameter">
+      <wsdl:input message="tns:SetServerParameterSoapIn" />
+      <wsdl:output message="tns:SetServerParameterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationsCount">
+      <wsdl:input message="tns:GetNotificationsCountSoapIn" />
+      <wsdl:output message="tns:GetNotificationsCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterList">
+      <wsdl:input message="tns:GetCounterListSoapIn" />
+      <wsdl:output message="tns:GetCounterListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SOAPdControl_Binding" type="tns:SOAPdControl_Binding">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendConnectionHello">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/SendConnectionHelloRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationList">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetNotificationListRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskList">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/SetTaskListRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskList">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetTaskListRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoAction">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/DoActionRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerParameter">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetServerParameterRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetServerParameter">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/SetServerParameterRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationsCount">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetNotificationsCountRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterList">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetCounterListRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SOAPdControl_Binding1" type="tns:SOAPdControl_Binding">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendConnectionHello">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/SendConnectionHelloRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationList">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetNotificationListRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetTaskList">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/SetTaskListRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskList">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetTaskListRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoAction">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/DoActionRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetServerParameter">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetServerParameterRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetServerParameter">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/SetServerParameterRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNotificationsCount">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetNotificationsCountRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCounterList">
+      <soap12:operation soapAction="http://www.aglaia-gmbh.de/xml/SOAPdControl/GetCounterListRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

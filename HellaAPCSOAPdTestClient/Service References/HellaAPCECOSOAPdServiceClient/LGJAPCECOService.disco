@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?wsdl" docRef="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" xmlns:q1="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" binding="q1:SOAPdServiceSoap12Binding" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" xmlns:q2="http://www.aglaia-gmbh.de/xml/SOAPdControl/" binding="q2:SOAPdControl_Binding" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" xmlns:q3="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" binding="q3:SOAPdServiceSoap12Binding1" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" xmlns:q4="http://www.aglaia-gmbh.de/xml/SOAPdControl/" binding="q4:SOAPdControl_Binding1" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="5c1956d3-ce66-4c4f-9498-dcf817916285" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="schema3.xsd" MetadataType="Schema" ID="6843a89e-f1d2-4794-8c3a-08122614b345" SourceId="1" SourceUrl="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?schema=schema3" />
+    <MetadataFile FileName="LGJAPCECOService.disco" MetadataType="Disco" ID="1be40106-e1f7-498f-8c26-bdeac1f9faeb" SourceId="1" SourceUrl="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?disco" />
+    <MetadataFile FileName="schema1.xsd" MetadataType="Schema" ID="2d3d0b18-d9a6-4beb-9656-cab18f39006e" SourceId="1" SourceUrl="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?schema=schema1" />
+    <MetadataFile FileName="schema2.xsd" MetadataType="Schema" ID="0885e133-b690-4e7e-8cb7-c55abfadb566" SourceId="1" SourceUrl="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?schema=schema2" />
+    <MetadataFile FileName="LGJAPCECOService.wsdl" MetadataType="Wsdl" ID="ad5aa2cf-1e6c-437d-9d4b-0919a1c6f1ba" SourceId="1" SourceUrl="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?wsdl" />
+    <MetadataFile FileName="LGJAPCECOService1.wsdl" MetadataType="Wsdl" ID="e22e1b0b-6037-4454-adaa-99ebb443c5c1" SourceId="1" SourceUrl="http://localhost:6680/smartbusapc/LGJAPCECOService.asmx?wsdl=wsdl1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

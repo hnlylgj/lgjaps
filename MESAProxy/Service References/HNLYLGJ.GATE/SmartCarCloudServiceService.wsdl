@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://jaxws2.vispectcloud.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SmartCarCloudServiceService" targetNamespace="http://jaxws2.vispectcloud.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://121.201.28.118:8080/smartcarcloudservice/SmartCarCloud?xsd=1" namespace="http://jaxws2.vispectcloud.com/" />
+    </xsd:schema>
+  </types>
+  <message name="GetGather">
+    <part name="parameters" element="tns:GetGather" />
+  </message>
+  <message name="GetGatherResponse">
+    <part name="parameters" element="tns:GetGatherResponse" />
+  </message>
+  <message name="BindingDevice">
+    <part name="parameters" element="tns:BindingDevice" />
+  </message>
+  <message name="BindingDeviceResponse">
+    <part name="parameters" element="tns:BindingDeviceResponse" />
+  </message>
+  <message name="GetSmartWarn">
+    <part name="parameters" element="tns:GetSmartWarn" />
+  </message>
+  <message name="GetSmartWarnResponse">
+    <part name="parameters" element="tns:GetSmartWarnResponse" />
+  </message>
+  <message name="SendSmartWarn">
+    <part name="parameters" element="tns:SendSmartWarn" />
+  </message>
+  <message name="SendSmartWarnResponse">
+    <part name="parameters" element="tns:SendSmartWarnResponse" />
+  </message>
+  <message name="GetAgent">
+    <part name="parameters" element="tns:GetAgent" />
+  </message>
+  <message name="GetAgentResponse">
+    <part name="parameters" element="tns:GetAgentResponse" />
+  </message>
+  <message name="RegisterAccount">
+    <part name="parameters" element="tns:RegisterAccount" />
+  </message>
+  <message name="RegisterAccountResponse">
+    <part name="parameters" element="tns:RegisterAccountResponse" />
+  </message>
+  <message name="GetAccount">
+    <part name="parameters" element="tns:GetAccount" />
+  </message>
+  <message name="GetAccountResponse">
+    <part name="parameters" element="tns:GetAccountResponse" />
+  </message>
+  <message name="LoginCloud">
+    <part name="parameters" element="tns:LoginCloud" />
+  </message>
+  <message name="LoginCloudResponse">
+    <part name="parameters" element="tns:LoginCloudResponse" />
+  </message>
+  <message name="TotalSmartWarn">
+    <part name="parameters" element="tns:TotalSmartWarn" />
+  </message>
+  <message name="TotalSmartWarnResponse">
+    <part name="parameters" element="tns:TotalSmartWarnResponse" />
+  </message>
+  <message name="AuthLogin">
+    <part name="parameters" element="tns:AuthLogin" />
+  </message>
+  <message name="AuthLoginResponse">
+    <part name="parameters" element="tns:AuthLoginResponse" />
+  </message>
+  <message name="SendCarRunState">
+    <part name="parameters" element="tns:SendCarRunState" />
+  </message>
+  <message name="SendCarRunStateResponse">
+    <part name="parameters" element="tns:SendCarRunStateResponse" />
+  </message>
+  <message name="GetCarRunState">
+    <part name="parameters" element="tns:GetCarRunState" />
+  </message>
+  <message name="GetCarRunStateResponse">
+    <part name="parameters" element="tns:GetCarRunStateResponse" />
+  </message>
+  <message name="PostListCarRunState">
+    <part name="parameters" element="tns:PostListCarRunState" />
+  </message>
+  <message name="PostListCarRunStateResponse">
+    <part name="parameters" element="tns:PostListCarRunStateResponse" />
+  </message>
+  <message name="PostListSmartWarn">
+    <part name="parameters" element="tns:PostListSmartWarn" />
+  </message>
+  <message name="PostListSmartWarnResponse">
+    <part name="parameters" element="tns:PostListSmartWarnResponse" />
+  </message>
+  <portType name="SmartCarCloudService">
+    <operation name="GetGather">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetGatherRequest" message="tns:GetGather" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetGatherResponse" message="tns:GetGatherResponse" />
+    </operation>
+    <operation name="BindingDevice">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/BindingDeviceRequest" message="tns:BindingDevice" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/BindingDeviceResponse" message="tns:BindingDeviceResponse" />
+    </operation>
+    <operation name="GetSmartWarn">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetSmartWarnRequest" message="tns:GetSmartWarn" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetSmartWarnResponse" message="tns:GetSmartWarnResponse" />
+    </operation>
+    <operation name="SendSmartWarn">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/SendSmartWarnRequest" message="tns:SendSmartWarn" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/SendSmartWarnResponse" message="tns:SendSmartWarnResponse" />
+    </operation>
+    <operation name="GetAgent">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetAgentRequest" message="tns:GetAgent" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetAgentResponse" message="tns:GetAgentResponse" />
+    </operation>
+    <operation name="RegisterAccount">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/RegisterAccountRequest" message="tns:RegisterAccount" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/RegisterAccountResponse" message="tns:RegisterAccountResponse" />
+    </operation>
+    <operation name="GetAccount">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetAccountRequest" message="tns:GetAccount" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetAccountResponse" message="tns:GetAccountResponse" />
+    </operation>
+    <operation name="LoginCloud">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/LoginCloudRequest" message="tns:LoginCloud" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/LoginCloudResponse" message="tns:LoginCloudResponse" />
+    </operation>
+    <operation name="TotalSmartWarn">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/TotalSmartWarnRequest" message="tns:TotalSmartWarn" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/TotalSmartWarnResponse" message="tns:TotalSmartWarnResponse" />
+    </operation>
+    <operation name="AuthLogin">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/AuthLoginRequest" message="tns:AuthLogin" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/AuthLoginResponse" message="tns:AuthLoginResponse" />
+    </operation>
+    <operation name="SendCarRunState">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/SendCarRunStateRequest" message="tns:SendCarRunState" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/SendCarRunStateResponse" message="tns:SendCarRunStateResponse" />
+    </operation>
+    <operation name="GetCarRunState">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetCarRunStateRequest" message="tns:GetCarRunState" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/GetCarRunStateResponse" message="tns:GetCarRunStateResponse" />
+    </operation>
+    <operation name="PostListCarRunState">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/PostListCarRunStateRequest" message="tns:PostListCarRunState" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/PostListCarRunStateResponse" message="tns:PostListCarRunStateResponse" />
+    </operation>
+    <operation name="PostListSmartWarn">
+      <input wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/PostListSmartWarnRequest" message="tns:PostListSmartWarn" />
+      <output wsam:Action="http://jaxws2.vispectcloud.com/SmartCarCloudService/PostListSmartWarnResponse" message="tns:PostListSmartWarnResponse" />
+    </operation>
+  </portType>
+  <binding name="SmartCarCloudServicePortBinding" type="tns:SmartCarCloudService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="GetGather">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="BindingDevice">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetSmartWarn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SendSmartWarn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetAgent">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="RegisterAccount">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetAccount">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="LoginCloud">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="TotalSmartWarn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="AuthLogin">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="SendCarRunState">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="GetCarRunState">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="PostListCarRunState">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="PostListSmartWarn">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SmartCarCloudServiceService">
+    <port name="SmartCarCloudServicePort" binding="tns:SmartCarCloudServicePortBinding">
+      <soap:address location="http://121.201.28.118:8080/smartcarcloudservice/SmartCarCloud" />
+    </port>
+  </service>
+</definitions>

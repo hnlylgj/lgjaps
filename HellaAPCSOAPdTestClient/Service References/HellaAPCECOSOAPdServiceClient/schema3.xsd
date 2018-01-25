@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" elementFormDefault="qualified" targetNamespace="http://www.aglaia-gmbh.de/xml/SOAPdControl.xsd" id="schema3" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" />
+  <xs:element name="ConnectionHello" type="xs:string" />
+  <xs:element name="ServerInfo" type="xs:string" />
+  <xs:element name="NotificationListRequest" type="tns:NotificationListRequestType" />
+  <xs:simpleType name="NotificationListRequestType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOTIFICATION_LIST_DEFAULT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServerNotificationList" type="tns:ServerNotificationListType" />
+  <xs:complexType name="ServerNotificationListType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="serverNotificationListItem" type="tns:ServerNotificationListItemType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="taskStatusList" type="tns:ArrayOfTaskStatusItemType" />
+      <xs:element minOccurs="1" maxOccurs="1" name="remainingNotifications" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="removedNotifications" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="logFileSize" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ServerNotificationListItemType">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" name="notificationListItem" type="q1:NotificationContainer" />
+      <xs:element xmlns:q2="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" name="errorListItem" type="q2:ErrorContainer" />
+      <xs:element minOccurs="0" maxOccurs="1" name="taskList" type="tns:ArrayOfTask" />
+    </xs:sequence>
+    <xs:attribute name="serverTime" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTask">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="unbounded" name="task" type="q3:Task" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTaskStatusItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="taskStatusItem" type="tns:TaskStatusItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TaskStatusItemType">
+    <xs:attribute name="taskId" type="xs:unsignedInt" use="required" />
+    <xs:attribute name="taskStatus" type="tns:TaskStatusType" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="TaskStatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CONTROL" />
+      <xs:enumeration value="SERVER" />
+      <xs:enumeration value="COUNTER" />
+      <xs:enumeration value="CONTROL_DEL" />
+      <xs:enumeration value="SERVER_DEL" />
+      <xs:enumeration value="COUNTER_DEL" />
+      <xs:enumeration value="CONFLICT" />
+      <xs:enumeration value="CONFLICT_DEL_NON_EXISTENT" />
+      <xs:enumeration value="CONFLICT_CREATE_EXISTENT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServerTaskList" type="tns:ArrayOfServerTaskListItemType" />
+  <xs:complexType name="ArrayOfServerTaskListItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="serverTaskListItem" type="tns:ServerTaskListItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ServerTaskListItemType">
+    <xs:sequence>
+      <xs:element xmlns:q4="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" name="task" type="q4:Task" />
+    </xs:sequence>
+    <xs:attribute name="taskDestinationMatchingField" type="tns:TaskDestinationMatchingFieldType" use="required" />
+    <xs:attribute name="taskDestinationMatchingFieldValue" type="xs:string" />
+    <xs:attribute name="taskStatus" type="tns:TaskStatusType" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="TaskDestinationMatchingFieldType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DONT_CARE" />
+      <xs:enumeration value="CUSTOMER_ID" />
+      <xs:enumeration value="MAC_ADDRESS" />
+      <xs:enumeration value="IP_ADDRESS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TaskStatusList" type="tns:ArrayOfTaskStatusItemType" />
+  <xs:element name="GetTaskListIdList" type="tns:ArrayOfUnsignedInt" />
+  <xs:complexType name="ArrayOfUnsignedInt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="id" type="xs:unsignedInt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServerAction" type="tns:ServerActionType" />
+  <xs:simpleType name="ServerActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CLEAR_ALL_TASKS" />
+      <xs:enumeration value="CLEAR_ALL_NOTIFICATIONS" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DoActionResponse" type="xs:string" />
+  <xs:element name="ServerParameterRequest" type="tns:ServerParameterRequestType" />
+  <xs:simpleType name="ServerParameterRequestType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SERVER_PARAMETER_DEFAULT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ServerParameter" type="tns:ServerParameterType" />
+  <xs:complexType name="ServerParameterType">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="maxServerNotifications" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="maxTransferNotifications" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="logFilePath" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="logFileSize" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServerParameterResponse" type="xs:string" />
+  <xs:element name="NotificationsCountRequest" type="tns:NotificationsCountRequestType" />
+  <xs:simpleType name="NotificationsCountRequestType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NOTIFICATIONS_COUNT_DEFAULT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="NotificationsCount" type="xs:int" />
+  <xs:element name="CounterListRequest" type="xs:string" />
+  <xs:element name="CounterListSynchronize" type="tns:CounterListSynchronizeType" />
+  <xs:complexType name="CounterListSynchronizeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="changedCounterListItems" type="tns:ArrayOfCounterListItemType" />
+      <xs:element minOccurs="0" maxOccurs="1" name="removedCounterListIds" type="tns:ArrayOfString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCounterListItemType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="counterListItem" type="tns:CounterListItemType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CounterListItemType">
+    <xs:attribute name="mac_address" type="xs:string" />
+    <xs:attribute name="ip_address" type="xs:string" />
+    <xs:attribute name="customer_ID" type="xs:string" />
+    <xs:attribute name="registered_timestamp" type="xs:dateTime" use="required" />
+    <xs:attribute name="updated_timestamp" type="xs:dateTime" use="required" />
+    <xs:attribute name="last_notification_ID" type="xs:unsignedInt" use="required" />
+    <xs:attribute name="last_notification_timestamp" type="xs:dateTime" use="required" />
+    <xs:attribute xmlns:q5="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" name="last_notification_type" type="q5:TaskType" use="required" />
+    <xs:attribute name="notifications_count" type="xs:unsignedInt" use="required" />
+    <xs:attribute name="last_error_ID" type="xs:unsignedInt" use="required" />
+    <xs:attribute name="last_error_timestamp" type="xs:dateTime" use="required" />
+    <xs:attribute xmlns:q6="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" name="last_error_reason" type="q6:SOAP_DeviceError" use="required" />
+    <xs:attribute name="errors_count" type="xs:unsignedInt" use="required" />
+    <xs:attribute name="changed" type="xs:boolean" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="counter_mac_address" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

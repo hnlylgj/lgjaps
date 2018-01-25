@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SmartBusAPCECOService" targetNamespace="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" />
+      <xs:element name="Notification">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" name="notification_message" type="q1:NotificationContainer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NotificationResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" name="NotificationResult" type="q2:AnswerContainer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Error">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" name="error_message" type="q3:ErrorContainer" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ErrorResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" name="ErrorResult" type="tns:ErrorResponse" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ErrorResponse">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q4:task_message" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfChoice1">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element xmlns:q5="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q5:task_set_date_time" />
+          <xs:element xmlns:q6="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q6:task_subscribe_alive" />
+          <xs:element xmlns:q7="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q7:task_subscribe_camera_images" />
+          <xs:element xmlns:q8="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q8:task_request_parameters" />
+          <xs:element xmlns:q9="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q9:task_reboot_now" />
+          <xs:element xmlns:q10="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q10:task_subscribe_digital_input" />
+          <xs:element xmlns:q11="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q11:task_subscribe_error_log" />
+          <xs:element xmlns:q12="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q12:task_delete_all_tasks" />
+          <xs:element xmlns:q13="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q13:task_request_update" />
+          <xs:element xmlns:q14="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q14:task_subscribe_fill" />
+          <xs:element xmlns:q15="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q15:task_subscribe_features_info" />
+          <xs:element xmlns:q16="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q16:task_subscribe_count_channels" />
+          <xs:element xmlns:q17="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q17:task_set_digital_output" />
+          <xs:element xmlns:q18="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q18:task_subscribe_zone_channels" />
+          <xs:element xmlns:q19="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q19:task_subscribe_counting" />
+          <xs:element xmlns:q20="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q20:task_delete_all_notifications" />
+          <xs:element xmlns:q21="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q21:task_subscribe_objlist" />
+          <xs:element xmlns:q22="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q22:task_subscribe_logfiles" />
+          <xs:element xmlns:q23="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q23:task_subscribe_clear_zone" />
+          <xs:element xmlns:q24="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q24:task_subscribe_send_parameters" />
+          <xs:element xmlns:q25="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" minOccurs="0" maxOccurs="1" ref="q25:task_subscribe_video_store" />
+        </xs:choice>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" elementFormDefault="qualified" targetNamespace="http://www.aglaia-gmbh.de/xml/2013/05/17/BaSS_SOAPd.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" />
+      <xs:complexType name="NotificationContainer">
+        <xs:sequence>
+          <xs:choice minOccurs="1" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" name="alive_notification" type="tns:AliveNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="camera_images_notification" type="tns:CameraImagesNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="clear_zone_notification" type="tns:ClearZoneNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="count_channels_notification" type="tns:CountChannelsNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="count_notification" type="tns:CountNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="curr_objlist_notification" type="tns:CurrentObjectListNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="digital_input_notification" type="tns:DigitalInputNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="error_logfiles_notification" type="tns:ErrorLogfilesNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="features_info_notification" type="tns:FeatureInfoNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="fill_notification" type="tns:FillNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="hist_objlist_notification" type="tns:HistoricObjectListNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="logfiles_notification" type="tns:LogfilesNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="parameter_notification" type="tns:ParameterNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="startup_notification" type="tns:StartupNotification" />
+            <xs:element minOccurs="0" maxOccurs="1" name="zone_channels_notification" type="tns:ZoneChannelsNotification" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AliveNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ExtendedNotificationBase" abstract="true">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:attribute name="ip_address" type="xs:string" />
+            <xs:attribute name="firmware_version" type="xs:string" />
+            <xs:attribute name="customer_version" type="xs:string" />
+            <xs:attribute name="version" type="xs:decimal" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NotificationWithOSDState" abstract="true">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:attribute name="osd_state" type="tns:OSD_State" use="required" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="NotificationBase" abstract="true">
+        <xs:attribute name="mac_address" type="xs:string" />
+        <xs:attribute name="customer_ID" type="xs:string" />
+        <xs:attribute name="task_type" type="tns:TaskType" use="required" />
+        <xs:attribute name="notification_ID" type="xs:unsignedInt" use="required" />
+        <xs:attribute name="serverTask_ID" type="xs:unsignedInt" use="required" />
+        <xs:attribute name="callerType_ID" type="xs:string" />
+        <xs:attribute name="timestamp" type="xs:dateTime" use="required" />
+      </xs:complexType>
+      <xs:simpleType name="TaskType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TASK_STARTUP" />
+          <xs:enumeration value="TASK_UPDATE" />
+          <xs:enumeration value="TASK_COUNT" />
+          <xs:enumeration value="TASK_FILL_LEVEL" />
+          <xs:enumeration value="TASK_DIGIT_INPUT" />
+          <xs:enumeration value="TASK_DIGIT_OUTPUT" />
+          <xs:enumeration value="TASK_CAM_IMAGE" />
+          <xs:enumeration value="TASK_PARAM" />
+          <xs:enumeration value="TASK_SEND_PARAM" />
+          <xs:enumeration value="TASK_LOG" />
+          <xs:enumeration value="TASK_ERR_LOG" />
+          <xs:enumeration value="TASK_VIDEO_STORE" />
+          <xs:enumeration value="TASK_SET_DATE_TIME" />
+          <xs:enumeration value="TASK_CURRENT_OBJECT_LIST" />
+          <xs:enumeration value="TASK_HISTORIC_OBJECT_LIST" />
+          <xs:enumeration value="TASK_ALIVE" />
+          <xs:enumeration value="TASK_REBOOT_NOW" />
+          <xs:enumeration value="TASK_CLEAR_ZONE" />
+          <xs:enumeration value="TASK_COUNT_CHANNELS" />
+          <xs:enumeration value="TASK_ZONE_CHANNELS" />
+          <xs:enumeration value="TASK_FEATURES_INFO" />
+          <xs:enumeration value="TASK_DELETE_ALL_TASKS" />
+          <xs:enumeration value="TASK_DELETE_ALL_NOTIFICATIONS" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="DigitalInputNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="digital_input_port" type="tns:DigitalInputElement" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DigitalInputElement">
+        <xs:attribute name="value" type="tns:DigitalInputValue" use="required" />
+      </xs:complexType>
+      <xs:simpleType name="DigitalInputValue">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DIGITAL_INPUT_ACTIVE" />
+          <xs:enumeration value="DIGITAL_INPUT_INACTIVE" />
+          <xs:enumeration value="DIGITAL_INPUT_NOT_AVAIL" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="LogfilesNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="log_data" type="tns:BinaryData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="BinaryData">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="bin_data" type="xs:base64Binary" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ParameterNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="parameter_data" type="tns:BinaryData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="HistoricObjectListNotificationBase">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationBase">
+            <xs:sequence>
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element minOccurs="0" maxOccurs="1" name="binary_data" type="tns:BinaryData" />
+                <xs:element minOccurs="0" maxOccurs="1" name="obj" type="tns:HistoricObject" />
+              </xs:choice>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="HistoricObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="exit" type="tns:Coordinate_3D" />
+        </xs:sequence>
+        <xs:attribute name="height" type="xs:unsignedInt" use="required" />
+        <xs:attribute name="exit_time" type="xs:dateTime" use="required" />
+      </xs:complexType>
+      <xs:complexType name="Coordinate_3D">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Coordinate_2D">
+            <xs:attribute name="z" type="xs:int" use="required" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Coordinate_2D">
+        <xs:attribute name="x" type="xs:int" use="required" />
+        <xs:attribute name="y" type="xs:int" use="required" />
+      </xs:complexType>
+      <xs:complexType name="HistoricObjectListNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:HistoricObjectListNotificationBase">
+            <xs:attribute name="lost_count" type="xs:unsignedInt" use="required" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="OSD_State">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OSD_STATE_OK" />
+          <xs:enumeration value="OSD_STATE_ERROR_SENSOR_FAIL" />
+          <xs:enumeration value="OSD_STATE_WARNING_DARK" />
+          <xs:enumeration value="OSD_STATE_ERROR_DARK" />
+          <xs:enumeration value="OSD_STATE_WARNING_BRIGHT" />
+          <xs:enumeration value="OSD_STATE_ERROR_BRIGHT" />
+          <xs:enumeration value="OSD_STATE_NOT_AVAIL" />
+          <xs:enumeration value="OSD_STATE_INVALID" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="CountNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="counting_gate_id" type="tns:CountingGateID" />
+            </xs:sequence>
+            <xs:attribute name="count_out" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="count_in" type="xs:unsignedInt" use="required" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CountingGateID">
+        <xs:attribute name="id" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="CountChannelsNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="count_channel" type="tns:CountChannelData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CountChannelData">
+        <xs:attribute name="channel_name" type="xs:string" />
+        <xs:attribute name="objClass" type="xs:string" />
+        <xs:attribute name="count_in" type="xs:unsignedInt" use="required" />
+        <xs:attribute name="count_out" type="xs:unsignedInt" use="required" />
+      </xs:complexType>
+      <xs:complexType name="ZoneChannelsNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="zone_channel" type="tns:ZoneData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ZoneData">
+        <xs:attribute name="zone_name" type="xs:string" />
+        <xs:attribute name="objClass" type="xs:string" />
+        <xs:attribute name="fill_level" type="xs:unsignedInt" use="required" />
+      </xs:complexType>
+      <xs:complexType name="FillNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="fill_region_id" type="tns:FillRegionID" />
+            </xs:sequence>
+            <xs:attribute name="fill_level" type="xs:unsignedInt" use="required" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="FillRegionID">
+        <xs:attribute name="id" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="ClearZoneNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="clear_zone_id" type="tns:ClearZoneID" />
+            </xs:sequence>
+            <xs:attribute name="is_blocked" type="xs:boolean" use="required" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ClearZoneID">
+        <xs:attribute name="id" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="CameraImagesNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="camera_images" type="tns:BinaryData" />
+              <xs:element minOccurs="0" maxOccurs="1" name="eval_map" type="tns:BinaryData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CurrentObjectListNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:NotificationWithOSDState">
+            <xs:sequence>
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element minOccurs="0" maxOccurs="1" name="binary_data" type="tns:BinaryData" />
+                <xs:element minOccurs="0" maxOccurs="1" name="obj" type="tns:CurrentObject" />
+              </xs:choice>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="CurrentObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="pos" type="tns:Coordinate_3D" />
+          <xs:element minOccurs="0" maxOccurs="1" name="mov" type="tns:Coordinate_2D" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ErrorLogfilesNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="error_log_data" type="tns:BinaryData" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="StartupNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase">
+            <xs:attribute name="reboot_type" type="tns:RebootType" use="required" />
+            <xs:attribute name="xml_version" type="xs:string" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="RebootType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SOAP_REBOOT_POWERON" />
+          <xs:enumeration value="SOAP_REBOOT_WATCHDOG" />
+          <xs:enumeration value="SOAP_REBOOT_UPDATE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="FeatureInfoNotification">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="active_count_channels" type="tns:ArrayOfCountChannelFeatureInfo" />
+              <xs:element minOccurs="0" maxOccurs="1" name="active_zone_channels" type="tns:ArrayOfZoneChannelFeatureInfo" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ArrayOfCountChannelFeatureInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="count_channel" type="tns:CountChannelFeatureInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CountChannelFeatureInfo">
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="objClass" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="ArrayOfZoneChannelFeatureInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="zone_channel" type="tns:ZoneChannelFeatureInfo" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ZoneChannelFeatureInfo">
+        <xs:attribute name="name" type="xs:string" />
+        <xs:attribute name="objClass" type="xs:string" />
+      </xs:complexType>
+      <xs:complexType name="ErrorContainer">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:ExtendedNotificationBase">
+            <xs:attribute name="error_reason" type="tns:SOAP_DeviceError" use="required" />
+            <xs:attribute name="error_text" type="xs:string" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="SOAP_DeviceError">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SOAP_DEVICE_OK" />
+          <xs:enumeration value="SOAP_ERROR_UNKNOWN_TASK" />
+          <xs:enumeration value="SOAP_ERROR_UNKNOWN_PARAM" />
+          <xs:enumeration value="SOAP_ERROR_OUT_OF_RESSOURCES" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="AnswerContainer">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskContainer">
+            <xs:attribute name="referenced_notification_ID" type="xs:unsignedInt" use="required" />
+            <xs:attribute name="server_response_type" type="tns:SOAP_ServerError" use="required" />
+            <xs:attribute name="version" type="xs:decimal" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskContainer">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element minOccurs="0" maxOccurs="1" name="task_delete_all_notifications" type="tns:TaskDeleteAllNotifications" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_delete_all_tasks" type="tns:TaskDeleteAllTasks" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_reboot_now" type="tns:TaskRebootNow" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_request_parameters" type="tns:TaskRequestParameters" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_request_update" type="tns:TaskRequestUpdate" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_set_date_time" type="tns:TaskSetDateTime" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_set_digital_output" type="tns:TaskSetDigitalOutput" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_alive" type="tns:TaskSubscribeAlive" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_camera_images" type="tns:TaskSubscribeCameraImages" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_clear_zone" type="tns:TaskSubscribeClearZone" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_count_channels" type="tns:TaskSubscribeCountChannels" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_counting" type="tns:TaskSubscribeCounting" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_digital_input" type="tns:TaskSubscribeDigitalInput" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_error_log" type="tns:TaskSubscribeErrorLog" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_features_info" type="tns:TaskSubscribeFeaturesInfo" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_fill" type="tns:TaskSubscribeFill" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_logfiles" type="tns:TaskSubscribeLogfiles" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_objlist" type="tns:TaskSubscribeObjectList" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_send_parameters" type="tns:TaskSubscribeSendParameters" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_video_store" type="tns:TaskSubscribeVideoStore" />
+            <xs:element minOccurs="0" maxOccurs="1" name="task_subscribe_zone_channels" type="tns:TaskSubscribeZoneChannels" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TaskDeleteAllNotifications">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Task" abstract="true">
+        <xs:attribute name="task_type" type="tns:TaskType" use="required" />
+        <xs:attribute name="serverTask_ID" type="xs:unsignedInt" use="required" />
+      </xs:complexType>
+      <xs:complexType name="TaskRebootNow">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskRequestUpdate">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:attribute name="update_type" type="tns:UpdateType" use="required" />
+            <xs:attribute name="packet_url" type="xs:string" />
+            <xs:attribute name="validity" type="xs:unsignedInt" use="required" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="UpdateType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="UPDATE_FIRMWARE" />
+          <xs:enumeration value="UPDATE_CUSTOMER_SOFTWARE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="TaskRequestParameters">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:attribute name="packet_url" type="xs:string" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskWithActivity" abstract="true">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:attribute name="activity_state" type="xs:boolean" use="required" />
+            <xs:attribute name="store_task" type="xs:boolean" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSetDigitalOutput">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskWithActivity">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="digital_output_port" type="tns:DigitalOutputElement" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DigitalOutputElement">
+        <xs:attribute name="activity" type="tns:DigitalOutputActivity" use="required" />
+      </xs:complexType>
+      <xs:simpleType name="DigitalOutputActivity">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DIGITAL_OUTPUT_LOW" />
+          <xs:enumeration value="DIGITAL_OUTPUT_HIGH" />
+          <xs:enumeration value="DIGITAL_OUTPUT_HOLD_LOW" />
+          <xs:enumeration value="DIGITAL_OUTPUT_HOLD_HIGH" />
+          <xs:enumeration value="DIGITAL_OUTPUT_UNTOUCHED" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="TaskSubscribeTriggered" abstract="true">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskWithActivity">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="trigger" type="tns:Trigger" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="Trigger">
+        <xs:sequence>
+          <xs:choice minOccurs="1" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" name="event_trigger" type="tns:EventTrigger" />
+            <xs:element minOccurs="0" maxOccurs="1" name="time_trigger" type="tns:TimeTrigger" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="EventTrigger">
+        <xs:sequence>
+          <xs:choice minOccurs="1" maxOccurs="1">
+            <xs:element minOccurs="0" maxOccurs="1" name="clear_zone_event" type="tns:ClearZoneEvent" />
+            <xs:element minOccurs="0" maxOccurs="1" name="count_channels_event" type="tns:CountChannelsEvent" />
+            <xs:element minOccurs="0" maxOccurs="1" name="count_event" type="tns:CountEvent" />
+            <xs:element minOccurs="0" maxOccurs="1" name="current_object_list_event" type="tns:CurrentObjectListEvent" />
+            <xs:element minOccurs="0" maxOccurs="1" name="digital_input_event" type="tns:DigitalInputEvent" />
+            <xs:element minOccurs="0" maxOccurs="1" name="feature_changed_event" type="tns:FeatureChangedEvent" />
+            <xs:element minOccurs="0" maxOccurs="1" name="fill_event" type="tns:FillEvent" />
+            <xs:element minOccurs="0" maxOccurs="1" name="one_time_event" type="tns:OneTimeEvent" />
+            <xs:element minOccurs="0" maxOccurs="1" name="osd_event" type="tns:OSD_Event" />
+            <xs:element minOccurs="0" maxOccurs="1" name="zone_channels_event" type="tns:ZoneChannelsEvent" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ClearZoneEvent">
+        <xs:attribute name="clear_zone_event_type" type="tns:ClearZoneEventType" use="required" />
+      </xs:complexType>
+      <xs:simpleType name="ClearZoneEventType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="CLEAR_ZONE_EVENT_FREE" />
+          <xs:enumeration value="CLEAR_ZONE_EVENT_BLOCKED" />
+          <xs:enumeration value="CLEAR_ZONE_EVENT_ANY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="CountChannelsEvent" />
+      <xs:complexType name="CountEvent">
+        <xs:attribute name="count_event_type" type="tns:CountEventType" use="required" />
+        <xs:attribute default="1" name="delta" type="xs:unsignedInt" />
+      </xs:complexType>
+      <xs:simpleType name="CountEventType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="COUNT_EVENT_ALWAYS" />
+          <xs:enumeration value="COUNT_EVENT_DELTA_IN" />
+          <xs:enumeration value="COUNT_EVENT_DELTA_OUT" />
+          <xs:enumeration value="COUNT_EVENT_DELTA_SUM_IN_OUT" />
+          <xs:enumeration value="COUNT_EVENT_DELTA_MAX_IN_OUT" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="CurrentObjectListEvent">
+        <xs:attribute default="0" name="skip" type="xs:unsignedInt" />
+      </xs:complexType>
+      <xs:complexType name="DigitalInputEvent">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="event" type="tns:DigitalInputEventType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="DigitalInputEventType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DIGITAL_INPUT_EVENT_INACTIVE" />
+          <xs:enumeration value="DIGITAL_INPUT_EVENT_ACTIVE" />
+          <xs:enumeration value="DIGITAL_INPUT_EVENT_ANY" />
+          <xs:enumeration value="DIGITAL_INPUT_EVENT_IGNORE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="FeatureChangedEvent" />
+      <xs:complexType name="FillEvent">
+        <xs:attribute name="fill_event_type" type="tns:FillEventType" use="required" />
+        <xs:attribute name="threshold" type="xs:unsignedInt" />
+      </xs:complexType>
+      <xs:simpleType name="FillEventType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="FILL_EVENT_ABOVE_THRESHOLD" />
+          <xs:enumeration value="FILL_EVENT_BELOW_THRESHOLD" />
+          <xs:enumeration value="FILL_EVENT_ANY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="OneTimeEvent" />
+      <xs:complexType name="OSD_Event" />
+      <xs:complexType name="ZoneChannelsEvent" />
+      <xs:complexType name="TimeTrigger">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="date" type="tns:Date" />
+          <xs:element minOccurs="0" maxOccurs="1" name="start" type="tns:ClockTime" />
+          <xs:element minOccurs="0" maxOccurs="1" name="cycle" type="xs:duration" />
+          <xs:element minOccurs="0" maxOccurs="1" name="random_offset" type="xs:duration" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Date">
+        <xs:attribute name="kind" type="tns:DateType" use="required" />
+        <xs:attribute name="day_of_week" type="tns:DayOfWeek" />
+        <xs:attribute name="day_of_month" type="xs:unsignedInt" />
+      </xs:complexType>
+      <xs:simpleType name="DateType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="DATE_DONT_CARE" />
+          <xs:enumeration value="DATE_DAY_OF_WEEK" />
+          <xs:enumeration value="DATE_DAY_OF_MONTH" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="DayOfWeek">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="MONDAY" />
+          <xs:enumeration value="TUESDAY" />
+          <xs:enumeration value="WEDNESDAY" />
+          <xs:enumeration value="THURSDAY" />
+          <xs:enumeration value="FRIDAY" />
+          <xs:enumeration value="SATURDAY" />
+          <xs:enumeration value="SUNDAY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="ClockTime">
+        <xs:attribute name="hours" type="xs:unsignedInt" use="required" />
+        <xs:attribute name="minutes" type="xs:unsignedInt" use="required" />
+        <xs:attribute name="seconds" type="xs:unsignedInt" use="required" />
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeTriggeredSafe" abstract="true">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:attribute default="false" name="store_on_transmission_error" type="xs:boolean" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeCounting">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="counting_gate_id" type="tns:CountingGateID" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeCountChannels">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeZoneChannels">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeFill">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="fill_region_id" type="tns:FillRegionID" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeClearZone">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="1" name="clear_zone_id" type="tns:ClearZoneID" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeDigitalInput">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggeredSafe">
+            <xs:sequence>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="digital_input_port" type="tns:DigitalInputControl" />
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="DigitalInputControl">
+        <xs:attribute name="activity_state" type="xs:boolean" use="required" />
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeLogfiles">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeErrorLog">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeCameraImages">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeSendParameters">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeVideoStore">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeAlive">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSubscribeObjectList">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered">
+            <xs:attribute name="transfer_type" type="tns:TransferType" use="required" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="TransferType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="TRANSFER_INLINE" />
+          <xs:enumeration value="TRANSFER_BINARY" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType name="TaskSubscribeFeaturesInfo">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:TaskSubscribeTriggered" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskSetDateTime">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task">
+            <xs:attribute name="time_to_set" type="xs:dateTime" use="required" />
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="TaskDeleteAllTasks">
+        <xs:complexContent mixed="false">
+          <xs:extension base="tns:Task" />
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:simpleType name="SOAP_ServerError">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SOAP_SERVER_OK" />
+          <xs:enumeration value="SOAP_ERROR_UNKNOWN_RESPONSE" />
+          <xs:enumeration value="SOAP_ERROR_UNKNOWN_MESSAGE" />
+          <xs:enumeration value="SOAP_ERROR_UNKNOWN_DEVICE" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element xmlns:q1="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/" name="task_message" type="q1:ArrayOfChoice1" />
+      <xs:element name="task_set_date_time" type="tns:TaskSetDateTime" />
+      <xs:element name="task_subscribe_alive" type="tns:TaskSubscribeAlive" />
+      <xs:element name="task_subscribe_camera_images" type="tns:TaskSubscribeCameraImages" />
+      <xs:element name="task_request_parameters" type="tns:TaskRequestParameters" />
+      <xs:element name="task_reboot_now" type="tns:TaskRebootNow" />
+      <xs:element name="task_subscribe_digital_input" type="tns:TaskSubscribeDigitalInput" />
+      <xs:element name="task_subscribe_error_log" type="tns:TaskSubscribeErrorLog" />
+      <xs:element name="task_delete_all_tasks" type="tns:TaskDeleteAllTasks" />
+      <xs:element name="task_request_update" type="tns:TaskRequestUpdate" />
+      <xs:element name="task_subscribe_fill" type="tns:TaskSubscribeFill" />
+      <xs:element name="task_subscribe_features_info" type="tns:TaskSubscribeFeaturesInfo" />
+      <xs:element name="task_subscribe_count_channels" type="tns:TaskSubscribeCountChannels" />
+      <xs:element name="task_set_digital_output" type="tns:TaskSetDigitalOutput" />
+      <xs:element name="task_subscribe_zone_channels" type="tns:TaskSubscribeZoneChannels" />
+      <xs:element name="task_subscribe_counting" type="tns:TaskSubscribeCounting" />
+      <xs:element name="task_delete_all_notifications" type="tns:TaskDeleteAllNotifications" />
+      <xs:element name="task_subscribe_objlist" type="tns:TaskSubscribeObjectList" />
+      <xs:element name="task_subscribe_logfiles" type="tns:TaskSubscribeLogfiles" />
+      <xs:element name="task_subscribe_clear_zone" type="tns:TaskSubscribeClearZone" />
+      <xs:element name="task_subscribe_send_parameters" type="tns:TaskSubscribeSendParameters" />
+      <xs:element name="task_subscribe_video_store" type="tns:TaskSubscribeVideoStore" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="HellaAPCECOSOAPdService_Notification_InputMessage">
+    <wsdl:part name="parameters" element="tns:Notification" />
+  </wsdl:message>
+  <wsdl:message name="HellaAPCECOSOAPdService_Notification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:NotificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="HellaAPCECOSOAPdService_Error_InputMessage">
+    <wsdl:part name="parameters" element="tns:Error" />
+  </wsdl:message>
+  <wsdl:message name="HellaAPCECOSOAPdService_Error_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ErrorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="HellaAPCECOSOAPdService">
+    <wsdl:operation name="Notification">
+      <wsdl:input wsaw:Action="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/NotificationRequest" message="tns:HellaAPCECOSOAPdService_Notification_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/HellaAPCECOSOAPdService/NotificationResponse" message="tns:HellaAPCECOSOAPdService_Notification_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Error">
+      <wsdl:input wsaw:Action="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/ErrorRequest" message="tns:HellaAPCECOSOAPdService_Error_InputMessage" />
+      <wsdl:output wsaw:Action="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/HellaAPCECOSOAPdService/ErrorResponse" message="tns:HellaAPCECOSOAPdService_Error_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_HellaAPCECOSOAPdService" type="tns:HellaAPCECOSOAPdService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Notification">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/NotificationRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Error">
+      <soap:operation soapAction="http://www.aglaia-gmbh.de/xml/BaSS_SOAPd/ErrorRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SmartBusAPCECOService">
+    <wsdl:port name="BasicHttpBinding_HellaAPCECOSOAPdService" binding="tns:BasicHttpBinding_HellaAPCECOSOAPdService">
+      <soap:address location="http://0.0.0.0:8880/SmartBusAPCECO/HellaSoap" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

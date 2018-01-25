@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://jaxws2.vispectcloud.com/" targetNamespace="http://jaxws2.vispectcloud.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="AuthLogin" type="tns:AuthLogin" />
+  <xs:element name="AuthLoginResponse" type="tns:AuthLoginResponse" />
+  <xs:element name="BindingDevice" type="tns:BindingDevice" />
+  <xs:element name="BindingDeviceResponse" type="tns:BindingDeviceResponse" />
+  <xs:element name="GetAccount" type="tns:GetAccount" />
+  <xs:element name="GetAccountResponse" type="tns:GetAccountResponse" />
+  <xs:element name="GetAgent" type="tns:GetAgent" />
+  <xs:element name="GetAgentResponse" type="tns:GetAgentResponse" />
+  <xs:element name="GetCarRunState" type="tns:GetCarRunState" />
+  <xs:element name="GetCarRunStateResponse" type="tns:GetCarRunStateResponse" />
+  <xs:element name="GetGather" type="tns:GetGather" />
+  <xs:element name="GetGatherResponse" type="tns:GetGatherResponse" />
+  <xs:element name="GetSmartWarn" type="tns:GetSmartWarn" />
+  <xs:element name="GetSmartWarnResponse" type="tns:GetSmartWarnResponse" />
+  <xs:element name="LoginCloud" type="tns:LoginCloud" />
+  <xs:element name="LoginCloudResponse" type="tns:LoginCloudResponse" />
+  <xs:element name="PostListCarRunState" type="tns:PostListCarRunState" />
+  <xs:element name="PostListCarRunStateResponse" type="tns:PostListCarRunStateResponse" />
+  <xs:element name="PostListSmartWarn" type="tns:PostListSmartWarn" />
+  <xs:element name="PostListSmartWarnResponse" type="tns:PostListSmartWarnResponse" />
+  <xs:element name="RegisterAccount" type="tns:RegisterAccount" />
+  <xs:element name="RegisterAccountResponse" type="tns:RegisterAccountResponse" />
+  <xs:element name="SendCarRunState" type="tns:SendCarRunState" />
+  <xs:element name="SendCarRunStateResponse" type="tns:SendCarRunStateResponse" />
+  <xs:element name="SendSmartWarn" type="tns:SendSmartWarn" />
+  <xs:element name="SendSmartWarnResponse" type="tns:SendSmartWarnResponse" />
+  <xs:element name="TotalSmartWarn" type="tns:TotalSmartWarn" />
+  <xs:element name="TotalSmartWarnResponse" type="tns:TotalSmartWarnResponse" />
+  <xs:complexType name="TotalSmartWarn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OptCode" type="xs:string" />
+      <xs:element name="FlagCode" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalSmartWarn" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TotalSmartWarnResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalSmartWarn" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetAgent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OptCode" type="xs:string" />
+      <xs:element name="FlagCode" type="xs:int" />
+      <xs:element minOccurs="0" name="AgentList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetAgentResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="AgentList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AuthLogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LoginName" type="xs:string" />
+      <xs:element minOccurs="0" name="PassWord" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AuthLoginResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LoginCloud">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LoginName" type="xs:string" />
+      <xs:element minOccurs="0" name="PassWord" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LoginCloudResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetCarRunState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarRunStateSet" type="xs:string" />
+      <xs:element name="FlagCode" type="xs:int" />
+      <xs:element minOccurs="0" name="CarRunStateList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetCarRunStateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="CarRunStateList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PostListSmartWarn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SmartWarnSet" type="xs:string" />
+      <xs:element minOccurs="0" name="FlagCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PostListSmartWarnResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="FlagCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="LoginName" type="xs:string" />
+      <xs:element minOccurs="0" name="PassWord" type="xs:string" />
+      <xs:element minOccurs="0" name="AccountID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegisterAccountResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetSmartWarn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OptCode" type="xs:string" />
+      <xs:element name="FlagCode" type="xs:int" />
+      <xs:element minOccurs="0" name="SmartWarnList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetSmartWarnResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="SmartWarnList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendSmartWarn">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SmartWarn" type="xs:string" />
+      <xs:element name="FlagCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendSmartWarnResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendCarRunState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarRunState" type="xs:string" />
+      <xs:element name="FlagCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SendCarRunStateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PostListCarRunState">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CarRunStateSet" type="xs:string" />
+      <xs:element minOccurs="0" name="FlagCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PostListCarRunStateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="FlagCode" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BindingDevice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountID" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceID" type="xs:string" />
+      <xs:element minOccurs="0" name="CarID" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BindingDeviceResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OptCode" type="xs:string" />
+      <xs:element name="FlagCode" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetAccountResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="AccountList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetGather">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OptCode" type="xs:string" />
+      <xs:element name="FlagCode" type="xs:int" />
+      <xs:element minOccurs="0" name="GatherList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetGatherResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+      <xs:element minOccurs="0" name="GatherList" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
